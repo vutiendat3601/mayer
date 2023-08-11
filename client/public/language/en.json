@@ -1,0 +1,64 @@
+{
+  "app": {
+    "name": "Mayer"
+  },
+
+  "project": {
+    "tag": "Project",
+    "description": "A project is a group of schemas, datasets, and scenarios that can be shared with others or remain private.",
+    "create_project": "Create Project",
+
+    "table": {
+      "name_project": "Name Project",
+      "created_date": "Created Date"
+    }
+  },
+
+  "label": {
+    "email": "Your Email",
+    "password": "Your Password",
+    "remember_me": "Remember me",
+    "lost_password": "Lost password?",
+    "login_with": "or login with",
+    "not_registered": "Not registered?   ",
+    "create_account": "Create account",
+    "comfirm_password": "Comfirm Password",
+    "check_term": "I agree to the",
+    "term_and_condition": "terms and conditions",
+    "have_account": "Already have an account?",
+    "login_here": "Login here",
+    "name_project": "Name Project"
+  },
+
+  "button": {
+    "login": "Sign in",
+    "loading": "Loading",
+    "back": "Back to homepage",
+    "registration": "Sign Up",
+    "remove": "Remove",
+    "update": "Update",
+    "create_project": "Create Project",
+    "remove_project": "Remove Project"
+  },
+
+  "login": {
+    "tagname": "Sign in to website"
+  },
+
+  "registration": {
+    "tagname": "Create an account"
+  },
+
+  "message": {
+    "required": "Required",
+    "invalid_email": "Invalid format email address",
+    "invalid_password": "Invalid format password",
+    "incorrect_account": "Incorrect email or password!",
+    "account_exists": "The account you signed up for already exists!",
+    "incorrect_comfirm_password": "Re-entered password is incorrect!"
+  },
+
+  "form": {
+    "search": "Search"
+  }
+}

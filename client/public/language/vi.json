@@ -1,0 +1,64 @@
+{
+  "app": {
+    "name": "Mayer"
+  },
+
+  "project": {
+    "tag": "Dự án",
+    "description": "Dự án là một nhóm các lược đồ, tập dữ liệu và kịch bản có thể được chia sẻ với những người khác hoặc vẫn ở chế độ riêng tư.",
+    "create_project": "Tạo dự án",
+
+    "table": {
+      "name_project": "Tên dự án",
+      "created_date": " Ngày tạo" 
+    }
+  },
+
+  "label": {
+    "email": "Email",
+    "password": "Mật khẩu",
+    "remember_me": "Nhớ đăng nhập",
+    "lost_password": "Quên mật khẩu?",
+    "login_with": "hoặc đăng nhập bằng",
+    "not_registered": "Chưa có tài khoản?   ",
+    "create_account": "Tạo tài khoản",
+    "comfirm_password": "Nhập lại mật khẩu",
+    "check_term": "Tôi đồng ý với",
+    "term_and_condition": "các điều khoản.",
+    "have_account": "Nếu đã có tài khoản?",
+    "login_here": "Hãy đăng nhập",
+    "name_project": "Tên dự án"
+  },
+
+  "button": {
+    "login": "Đăng nhập",
+    "loading": "Đang tải",
+    "back": "Quay lại",
+    "registration": "Đăng ký",
+    "remove": "Xóa",
+    "update": "Sửa đổi",
+    "create_project": "Tạo dự án",
+    "remove_project": "Xóa dự án"
+  },
+
+  "login": {
+    "tagname": "Đăng nhập"
+  },
+
+  "registration": {
+    "tagname" : "Đăng ký tài khoản"
+  },
+
+  "message": {
+    "required": "Không được bỏ trống",
+    "invalid_email": "Email không đúng định dạng",
+    "invalid_password": "Mật khẩu không đúng định dạng",
+    "incorrect_account": "Tài khoản và mật khẩu không chính xác!",
+    "account_exists": "Tài khoản đăng ký đã tồn tại!",
+    "incorrect_comfirm_password": "Nhập lại mật khẩu không chính xác"
+  },
+
+  "form": {
+    "search": "Tìm kiếm"
+  }
+}

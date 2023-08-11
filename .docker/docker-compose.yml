@@ -1,0 +1,85 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mayer_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mayer_dev
+      MYSQL_USER: mayer_admin
+      MYSQL_PASSWORD: mayer_admin
+    volumes:
+      - ./mysql/lib:/var/lib/mysql
+    ports:
+      - 4004:3306
+
+  phpmyadmin:
+    build: ./phpmyadmin
+    container_name: mayer_phpmyadmin
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_HOST: mysql
+      PMA_USER: mayer_admin
+      PMA_PASSWORD: mayer_admin
+    ports:
+      - 4002:80
+
+  mongo:
+    image: mongo
+    container_name: mayer_mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mayer_admin
+      MONGO_INITDB_ROOT_PASSWORD: mayer_admin
+      MONGO_INITDB_DATABASE: mayer_dev
+    ports:
+      - 4005:27017
+
+  mongo-express:
+    image: mongo-express
+    container_name: mayer_mongo-express
+    restart: always
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: mayer_admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: mayer_admin
+      ME_CONFIG_MONGODB_AUTH_DATABASE: mayer_dev
+      ME_CONFIG_MONGODB_URL: mongodb://mayer_admin:mayer_admin@mongo:27017/
+    depends_on:
+      - mongo
+    ports:
+      - 4003:8081
+    command: /bin/bash -c "node app > /dev/null"
+
+  server:
+    image: mayer_server:1.0.1
+    build:
+      context: ../server
+      dockerfile: ../.docker/elixir/Dockerfile
+      args:
+        - UID=${UID:-1000}
+        - GID=${GID:-1000}
+    container_name: mayer_server
+    volumes:
+      - ../server:/webapp
+      - /webapp/_build
+      - /webapp/deps
+    ports:
+      - 4001:4000
+
+  client:
+    image: mayer_client:1.0.0
+    build:
+      context: ../client
+      dockerfile: ../.docker/nodejs/Dockerfile
+    container_name: mayer_client
+    environment:
+      - NODE_ENV=development
+      - WDS_SOCKET_PORT=0
+    volumes:
+      - ../client:/usr/src/app
+      - ./logs/nodejs:/root/.npm/_logs
+      - /usr/src/app/node_modules
+    ports:
+      - 4000:3000
+    command: /bin/bash -c "npm install --force && npm run start"
